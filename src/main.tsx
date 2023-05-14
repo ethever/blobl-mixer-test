@@ -7,13 +7,23 @@ import {
 } from "@mui/material/styles";
 import { CssVarsProvider as JoyCssVarsProvider } from "@mui/joy/styles";
 import { materialTheme } from "./theme.ts";
-import { CssBaseline } from "@mui/joy";
+import { CssBaseline, GlobalStyles } from "@mui/joy";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <MaterialCssVarsProvider theme={{ [THEME_ID]: materialTheme }}>
       <JoyCssVarsProvider>
         <CssBaseline />
+        <GlobalStyles
+          styles={{
+            body: {
+              height: "100vh",
+            },
+            "#root": {
+              height: "100%",
+            },
+          }}
+        />
         <App />
       </JoyCssVarsProvider>
     </MaterialCssVarsProvider>
